@@ -150,25 +150,16 @@ const SurveyPage = () => {
       // Add random delay for security
       await addRandomDelay();
 
-      // Debug: Log form data before sanitization
-      console.log('Form data before sanitization:', formData);
-      console.log('Text data before sanitization:', formData.text);
-
       // Sanitize all text responses
       const sanitizedData = {
         ...formData,
         text: Object.fromEntries(
-          Object.entries(formData.text).map(([key, value]) => {
-            console.log(`Processing ${key}:`, value);
-            return [
-              key, 
-              value ? sanitizeInput(value) : ''
-            ];
-          })
+          Object.entries(formData.text).map(([key, value]) => [
+            key, 
+            value ? sanitizeInput(value) : ''
+          ])
         )
       };
-
-      console.log('Sanitized data:', sanitizedData);
 
       // Prepare submission data
       const submissionData = {

@@ -29,16 +29,7 @@ const ResponseCard = ({ response, isExpanded, onToggleExpansion, index, total })
   };
 
   const getMappedTextResponse = (oldKey, newKey) => {
-    const value = response.text?.[newKey] || response.text?.[oldKey] || '';
-    
-    // Check if the value is actually question text (contains the question pattern)
-    if (value.includes('WHATS WORKING WELL AT SOCIALSECT RIGHT NOW?') || 
-        value.includes('WHAT SHOULD WE DOUBLE DOWN ON') ||
-        value.includes('WHAT SHOULD WE DOUBLE DOWN ON')) {
-      return ''; // Return empty if it's question text
-    }
-    
-    return value;
+    return response.text?.[newKey] || response.text?.[oldKey] || '';
   };
 
   const hasTextResponses = Object.values(response.text || {}).some(text => text && text.trim().length > 0);

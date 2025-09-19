@@ -21,6 +21,10 @@ body {
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
 }
 
+.app > * {
+  flex-shrink: 0;
+}
+
 /* Global Logo */
 .app::before {
   content: '';
