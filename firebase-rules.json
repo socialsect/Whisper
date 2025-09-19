@@ -1,0 +1,65 @@
+{
+  "rules": {
+    "submissions": {
+      ".read": "auth != null",
+      ".write": "true",
+      ".validate": "newData.hasChildren(['timestamp', 'anonymousId', 'version']) && (newData.hasChildren(['pulse', 'text']) || newData.hasChildren(['type', 'recommendation']))",
+      "pulse": {
+        ".validate": "newData.hasChildren(['work_satisfaction', 'team_collaboration', 'work_life_balance', 'management_support', 'career_growth', 'overall_wellbeing'])",
+        "work_satisfaction": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "team_collaboration": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "work_life_balance": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "management_support": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "career_growth": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "overall_wellbeing": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        }
+      },
+      "text": {
+        "what_works_well": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        },
+        "improvement_areas": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        },
+        "suggestions": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        },
+        "full_review": {
+          ".validate": "newData.isString() && newData.val().length <= 2000"
+        },
+        "additional_feedback": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        },
+        "appreciation": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        }
+      },
+      "timestamp": {
+        ".validate": "newData.isString()"
+      },
+      "anonymousId": {
+        ".validate": "newData.isString() && newData.val().length <= 50"
+      },
+      "version": {
+        ".validate": "newData.isString()"
+      },
+      "type": {
+        ".validate": "newData.isString() && newData.val() == 'custom_recommendation'"
+      },
+      "recommendation": {
+        ".validate": "newData.isString() && newData.val().length <= 2000"
+      }
+    }
+  }
+}

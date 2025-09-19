@@ -1,0 +1,149 @@
+.textQuestion {
+  margin-bottom: 1.5rem;
+}
+
+.questionLabel {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.required {
+  color: #dc2626;
+  margin-left: 0.25rem;
+}
+
+.textareaContainer {
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 60px;
+  max-height: 200px;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #1f2937;
+  overflow: hidden;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #695af2;
+  box-shadow: 0 0 0 3px rgba(105, 90, 242, 0.1);
+  background: #ffffff;
+}
+
+.textarea.expanded {
+  min-height: 100px;
+  overflow-y: auto;
+}
+
+.textarea.fullReview {
+  min-height: 120px;
+}
+
+.textarea.fullReview.expanded {
+  min-height: 200px;
+}
+
+.textarea.error {
+  border-color: #dc2626;
+}
+
+.textarea.error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.textarea::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.textareaFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding: 0 0.25rem;
+}
+
+.characterCount {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.nearLimit {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+.expandButton {
+  background: none;
+  border: none;
+  color: #8b5fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.expandButton:hover {
+  background-color: rgba(105, 90, 242, 0.1);
+  color: #7c3aed;
+}
+
+.errorMessage {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .textarea {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  .textarea.expanded {
+    min-height: 120px;
+  }
+  
+  .textareaFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .expandButton {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .textarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .questionLabel {
+    font-size: 0.95rem;
+  }
+}

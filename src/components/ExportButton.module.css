@@ -1,0 +1,23 @@
+.exportButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+}
+
+.exportIcon {
+  margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .exportButton {
+    font-size: 0.85rem;
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .exportIcon {
+    font-size: 0.9rem;
+  }
+}
