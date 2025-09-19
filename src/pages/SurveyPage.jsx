@@ -21,7 +21,7 @@ const SURVEY_QUESTIONS = {
   text: [
     { id: 'what_works_well', question: 'What\'s working well at Socialsect right now?\n(What should we double down on — systems, habits, or people that make the team stronger?)', required: true },
     { id: 'what_slowing_down', question: 'What\'s slowing us down or creating friction?\n(Processes, tools, culture, or leadership — where do you feel drag?)', required: true },
-    { id: 'leadership_perspective', question: 'Your Perspective on Leadership\n(How do you feel about the way Rayansh and   leads? What\'s strong, what\'s weak, what should evolve?)', required: true },
+    { id: 'leadership_perspective', question: 'Your Perspective on Leadership\n(How do you feel about the way Rayansh and Aakash  lead? What\'s strong, what\'s weak, what should evolve?)', required: true },
     { id: 'team_perspective', question: 'Your Perspective on the Team\n(Do you want to share anything about a teammate — positive or negative? Think honesty, not politics.)', required: false },
     { id: 'one_change_tomorrow', question: 'If you could change one thing tomorrow, what would it be?\n(Big or small — what shift would instantly improve your experience here?)', required: true },
     { id: 'anything_else', question: 'Anything else you want leadership to know?\n(Uncensored space — if it\'s on your mind, write it down.)', required: false },
