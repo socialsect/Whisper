@@ -1,0 +1,128 @@
+/*
+  Design tokens for the employee flow.
+  Shape rule: buttons are pills, tiles and inputs use --r (18px). Nothing else.
+  One accent (Socialsect purple). Theme follows the system, light and dark both designed.
+*/
+.shell {
+  --bg: #f6f5fb;
+  --surface: #ffffff;
+  --ink: #16141f;
+  --muted: #5c5972;
+  --line: #dedcec;
+  --line-strong: #c4c1da;
+  --accent: #695af2;
+  --accent-ink: #ffffff;
+  --accent-text: #5242d6;
+  --accent-soft: #ebe9fe;
+  --aura: rgba(105, 90, 242, 0.14);
+  --danger: #b4233a;
+  --r: 18px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  .shell {
+    --bg: #0e0d14;
+    --surface: #171621;
+    --ink: #f2f1f9;
+    --muted: #a3a0ba;
+    --line: #292739;
+    --line-strong: #3d3a54;
+    --accent-text: #a79cff;
+    --accent-soft: #221e45;
+    --aura: rgba(105, 90, 242, 0.24);
+    --danger: #ff8a9b;
+  }
+}
+
+/* Soft colour wash, no glow */
+.shell::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 80dvh;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(60% 70% at 88% 0%, var(--aura) 0%, transparent 72%);
+}
+
+.header {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: max(16px, env(safe-area-inset-top)) 20px 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 650;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--accent);
+}
+
+.mark img {
+  display: block;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px max(28px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.footer a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  color: var(--ink);
+}
+
+.brand:focus-visible,
+.footer a:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+}

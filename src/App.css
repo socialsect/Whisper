@@ -324,3 +324,11 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-purple-600);
 }
+/* Employee pages use their own shell, so drop the global logo overlay and dark backdrop there */
+.app--employee {
+  background: none;
+}
+
+.app--employee::before {
+  display: none;
+}

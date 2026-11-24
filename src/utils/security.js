@@ -1,40 +1,18 @@
-// Security utilities for input sanitization and validation
+// Helpers for keeping submissions anonymous and well-formed.
 
-export const sanitizeInput = (input, maxLength = 1000) => {
+export const MAX_TEXT = 1000;
+
+// Light cleanup only. React escapes output, so we do not mangle the text
+// (no stripping of quotes or "on...=" patterns, which broke normal writing).
+export const cleanText = (input, max = MAX_TEXT) => {
   if (typeof input !== 'string') return '';
-  
   return input
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
     .trim()
-    .slice(0, maxLength)
-    .replace(/[<>]/g, '') // Remove potential HTML tags
-    .replace(/javascript:/gi, '') // Remove javascript: protocol
-    .replace(/on\w+=/gi, '') // Remove event handlers
-    .replace(/['"]/g, '') // Remove quotes to prevent injection
-    .replace(/\s+/g, ' '); // Normalize whitespace
+    .slice(0, max);
 };
 
-export const validatePulseScore = (score) => {
-  const num = parseInt(score);
-  return !isNaN(num) && num >= 1 && num <= 5;
-};
-
-export const validateTextResponse = (text, minLength = 10, maxLength = 1000) => {
-  const sanitized = sanitizeInput(text, maxLength);
-  return sanitized.length >= minLength && sanitized.length <= maxLength;
-};
-
-export const validateFullReview = (text, minLength = 10, maxLength = 2000) => {
-  const sanitized = sanitizeInput(text, maxLength);
-  return sanitized.length >= minLength && sanitized.length <= maxLength;
-};
-
-export const addRandomDelay = () => {
-  // Add random delay between 1-3 seconds to prevent timing attacks
-  const delay = Math.random() * 2000 + 1000;
-  return new Promise(resolve => setTimeout(resolve, delay));
-};
-
-export const generateAnonymousId = () => {
-  // Generate a simple anonymous ID for tracking without personal data
-  return 'anon_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-};
+export const isValidScore = (n) => Number.isInteger(n) && n >= 1 && n <= 5;

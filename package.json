@@ -7,14 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:apps-script": "node --test apps-script/test.mjs"
   },
   "dependencies": {
-    "chart.js": "^4.5.0",
-    "firebase": "^12.3.0",
+    "@fontsource-variable/geist": "^5.3.0",
     "lucide-react": "^0.544.0",
+    "motion": "^14.14.0",
     "react": "^19.1.1",
-    "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.1"
   },
