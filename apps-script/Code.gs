@@ -90,12 +90,24 @@ function flush_() {
   }
 }
 
-// Text columns are plain text so a response like "=IMPORTXML(...)" can never run as a formula.
+// Ratings are numbers. Text answers and the version are written as literal text:
+// setValues would parse a string like "=IMPORTXML(...)" as a formula, even in a
+// plain-text column, so answers go in as rich text values, which are never parsed.
 function writeRows_(sheet, startRow, rows) {
-  var needed = startRow + rows.length - 1;
+  var n = rows.length;
+  var tc = textFirstCol_();
+  var needed = startRow + n - 1;
   if (sheet.getMaxRows() < needed) sheet.insertRowsAfter(sheet.getMaxRows(), needed - sheet.getMaxRows());
-  sheet.getRange(startRow, textFirstCol_(), rows.length, TEXT.length).setNumberFormat('@');
-  sheet.getRange(startRow, 1, rows.length, cols_()).setValues(rows);
+
+  sheet.getRange(startRow, 1, n, tc - 1).setValues(rows.map(function (r) { return r.slice(0, tc - 1); }));
+
+  var literal = sheet.getRange(startRow, tc, n, cols_() - tc + 1);
+  literal.setNumberFormat('@');
+  literal.setRichTextValues(rows.map(function (r) {
+    return r.slice(tc - 1).map(function (v) {
+      return SpreadsheetApp.newRichTextValue().setText(String(v)).build();
+    });
+  }));
 }
 
 function shuffle_(rows) {
