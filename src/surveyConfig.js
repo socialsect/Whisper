@@ -10,7 +10,7 @@ export const PULSE = [
   { id: 'wellbeing_at_work', text: 'Overall, I feel good about being part of this team.' },
 ];
 
-// All text prompts are optional. Ratings are the only required part.
+// Every prompt needs an answer in the app. The Apps Script validator still accepts blanks.
 export const TEXT = [
   {
     id: 'what_works_well',

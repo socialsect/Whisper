@@ -82,7 +82,7 @@ const TextStep = ({ question, value, onChange }) => {
 
   return (
     <div>
-      <p className={styles.kind}>Optional</p>
+      <p className={styles.kind}>Your words</p>
       <h1 id="question" ref={headingRef} tabIndex={-1} className={styles.question}>
         {question.title}
       </h1>
@@ -210,7 +210,7 @@ const SurveyPage = () => {
     const onKey = (e) => {
       if (isPulse && /^[1-5]$/.test(e.key) && !e.metaKey && !e.ctrlKey && !e.altKey) {
         pick(Number(e.key));
-      } else if (!isPulse && e.key === 'Enter' && (e.metaKey || e.ctrlKey) && !sending) {
+      } else if (!isPulse && e.key === 'Enter' && (e.metaKey || e.ctrlKey) && !sending && textValue.trim()) {
         next();
       }
     };
@@ -225,10 +225,9 @@ const SurveyPage = () => {
   };
 
   // On rating screens the button only appears when revisiting an answered question
-  const showAction = !isPulse || (answered && !advancing);
+  const showAction = isPulse ? answered && !advancing : !!textValue.trim();
   let actionLabel = 'Next';
   if (isLast) actionLabel = 'Send anonymously';
-  else if (!isPulse && !textValue.trim()) actionLabel = 'Skip';
 
   return (
     <EmployeeShell minimal>
@@ -297,7 +296,7 @@ const SurveyPage = () => {
           {showAction && (
             <button
               type="button"
-              className={`${ui.btn} ${!isPulse && !textValue.trim() && !isLast ? ui.ghost : ui.primary} ${styles.action}`}
+              className={`${ui.btn} ${ui.primary}${styles.action}`}
               onClick={next}
               disabled={sending}
             >

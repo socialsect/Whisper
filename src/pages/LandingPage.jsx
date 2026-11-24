@@ -17,7 +17,7 @@ const LandingPage = () => (
       <div className={styles.copy}>
         <h1 className={styles.title}>Two minutes. Zero names.</h1>
         <p className={styles.lead}>
-          Six quick taps and a few optional questions. Nothing saved with your answers can be traced back to you.
+          Six quick taps and a few short written questions. Nothing saved with your answers can be traced back to you.
         </p>
         <Link to="/survey" className={`${ui.btn} ${ui.primary} ${styles.cta}`}>
           Start
