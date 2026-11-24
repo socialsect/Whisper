@@ -6,8 +6,8 @@ import styles from './LandingPage.module.css';
 
 const PROMISES = [
   { title: 'No login', body: 'You never sign in, so there is no account to trace.' },
-  { title: 'No name, email or ID', body: 'Each response is saved under a random key and nothing else.' },
-  { title: 'Date, not time', body: 'We store the day you answered, never the time.' },
+  { title: 'No name, email or ID', body: 'A response is only your ratings and your words. Nothing else is saved with it.' },
+  { title: 'No date, no time', body: 'Answers reach leadership in shuffled batches, so their order never shows who replied when.' },
   { title: 'Open source', body: 'The code is public, so you can check every one of these claims.' },
 ];
 
