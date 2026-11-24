@@ -29,7 +29,7 @@ export const TEXT = [
   },
   {
     id: 'leadership_perspective',
-    title: 'How do you feel about the way Rayansh and Aakash lead?',
+    title: 'How do you feel about the way Rayansh leads?',
     hint: 'What is strong, what is weak, what should change?',
   },
   {

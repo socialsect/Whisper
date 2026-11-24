@@ -18,7 +18,7 @@ var TEXT = [
   { id: 'what_works_well', title: 'What is working well right now?' },
   { id: 'what_slowing_down', title: 'What is slowing us down?' },
   { id: 'one_change_tomorrow', title: 'If you could change one thing tomorrow, what would it be?' },
-  { id: 'leadership_perspective', title: 'How do you feel about the way Rayansh and Aakash lead?' },
+  { id: 'leadership_perspective', title: 'How do you feel about the way Rayansh leads?' },
   { id: 'team_perspective', title: 'Anything to share about a teammate?' },
   { id: 'recognition', title: 'Who deserves a shout-out?' },
   { id: 'anything_else', title: 'Anything else leadership should know?' }
