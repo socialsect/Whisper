@@ -207,7 +207,7 @@ function buildSummary_(ss) {
       .addRange(s.getRange('A5:A11'))
       .addRange(s.getRange('C5:G11'))
       .setNumHeaders(1)
-      .setStacked()
+      .setOption('isStacked', true)
       .setPosition(13, 4, 0, 0)
       .setOption('title', 'Rating distribution')
       .setOption('width', 560)
